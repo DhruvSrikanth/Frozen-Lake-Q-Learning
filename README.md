@@ -7,20 +7,36 @@ A `reinforcement learning` based approach playing the `frozen lake` game from `o
 - Create a virtual environment
 
 ```
-python3 -m venv /path/to/new/virtual/environment
+make setup
 ```
 
 - Activate the virtual environment
 
 ```
-source /path/to/new/virtual/environment/bin/activate
+source ./QL-venv/bin/activate 
 ```
 ## Installing Requirements:
 
 - Install `python` dependencies
 
 ```
-pip install -r /path/to/requirements.txt
+make install
+```
+
+## Updating Requirements:
+
+- Update `python` dependencies
+
+```
+make update
+```
+
+## Cleanup Enviroment:
+
+- Clear the environment setup
+
+```
+make clean
 ```
 
 
