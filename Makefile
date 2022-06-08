@@ -2,7 +2,10 @@
 .ONESHELL:
 
 # Environment variables
-PYTHON = python3
+PYTHON = python
+PIP = pip
+REMOVE = rm -rf
+PRINT = @echo
 
 # targets
 .PHONY: setup
@@ -19,26 +22,25 @@ run: run_tests
 
 # rules
 create_env:
-	@echo "Creating Virtual Environment..."
+	$(PRINT) "Creating Virtual Environment..."
 	$(PYTHON) -m venv ./QL-venv
-	@echo ""
+	$(PRINT)
 
 install_requirements:
-	@echo "Installing Dependencies..."
-	pip install -r ./requirements.txt
-	@echo ""
+	$(PRINT) "Installing Dependencies..."
+	$(PIP) install -r ./requirements.txt
+	$(PRINT) ""
 
 update_requirements:
-	@echo "Updating Dependencies..."
-	pip freeze > ./requirements.txt
-	@echo ""
+	$(PRINT) "Updating Dependencies..."
+	$(PIP) freeze > ./requirements.txt
+	$(PRINT) ""
 
 run_tests:
-	@echo "Running Tests..."
+	$(PRINT) "Running Tests..."
 	$(PYTHON) ./src/agent.py
-	@echo ""
+	$(PRINT) ""
 
 clean:
-	@echo "Cleaning...\n"
+	$(PRINT) "Cleaning...\n"
 	rm -rf ./QL-venv
-	@clear
